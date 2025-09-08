@@ -1,9 +1,9 @@
 ---
 services:
     web:
-        build: ./serenewealth
+        build: ./backend
         volumes:
-            - ./serenewealth/:/usr/src/app/
+            - ./backend/:/usr/src/app/
         ports:
             - 8000:8000
         env_file:
