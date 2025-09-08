@@ -2,11 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run SereneWealth",
+            "name": "Run Backend",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/serenewealth/manage.py",
-            "cwd": "${workspaceFolder}/serenewealth",
+            "program": "${workspaceFolder}/backend/manage.py",
+            "cwd": "${workspaceFolder}/backend",
             "envFile": "${workspaceFolder}/.env",
             "args": [
                 "runserver",
@@ -18,8 +18,8 @@
             "name": "makemigrations",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/serenewealth/manage.py",
-            "cwd": "${workspaceFolder}/serenewealth",
+            "program": "${workspaceFolder}/backend/manage.py",
+            "cwd": "${workspaceFolder}/backend",
             "envFile": "${workspaceFolder}/.env",
             "args": [
                 "makemigrations"
@@ -30,8 +30,8 @@
             "name": "migrate",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/serenewealth/manage.py",
-            "cwd": "${workspaceFolder}/serenewealth",
+            "program": "${workspaceFolder}/backend/manage.py",
+            "cwd": "${workspaceFolder}/backend",
             "envFile": "${workspaceFolder}/.env",
             "args": [
                 "migrate"
@@ -42,8 +42,8 @@
             "name": "collect static",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/serenewealth/manage.py",
-            "cwd": "${workspaceFolder}/serenewealth",
+            "program": "${workspaceFolder}/backend/manage.py",
+            "cwd": "${workspaceFolder}/backend",
             "envFile": "${workspaceFolder}/.env",
             "args": [
                 "collectstatic",
@@ -55,8 +55,8 @@
             "name": "Empty DB",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/serenewealth/manage.py",
-            "cwd": "${workspaceFolder}/serenewealth",
+            "program": "${workspaceFolder}/backend/manage.py",
+            "cwd": "${workspaceFolder}/backend",
             "envFile": "${workspaceFolder}/.env",
             "args": [
                 "flush"
@@ -67,8 +67,8 @@
             "name": "createsuperuser",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/serenewealth/manage.py",
-            "cwd": "${workspaceFolder}/serenewealth",
+            "program": "${workspaceFolder}/backend/manage.py",
+            "cwd": "${workspaceFolder}/backend",
             "envFile": "${workspaceFolder}/.env",
             "args": [
                 "createsuperuser"
@@ -79,8 +79,8 @@
             "name": "Setup Sites",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/serenewealth/manage.py",
-            "cwd": "${workspaceFolder}/serenewealth",
+            "program": "${workspaceFolder}/backend/manage.py",
+            "cwd": "${workspaceFolder}/backend",
             "envFile": "${workspaceFolder}/.env",
             "args": [
                 "setup_sites"
