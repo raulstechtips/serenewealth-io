@@ -36,10 +36,12 @@ if APP_ENV in ["dev", "test"]:
     CORS_ALLOWED_ORIGINS = (
         'http://localhost:8081',
         'http://localhost:8080',
+        'http://localhost:3000',
     )
     CSRF_TRUSTED_ORIGINS = [
         'http://localhost:8081',
         'http://localhost:8080',
+        'http://localhost:3000',
     ]
     ALLOWED_HOSTS = ["*"]
 
@@ -54,11 +56,17 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    "drf_spectacular",
+    "rest_framework",
+    "corsheaders",
+    "rest_framework_simplejwt",
+
     "ledger",
 ]
 
 MIDDLEWARE = [
     "config.middleware.health_check_middleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -157,26 +165,27 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Rest Framework Settings - COMMENTED OUT FOR DRF REMOVAL
-# REST_FRAMEWORK = {
-#     # 'DEFAULT_AUTHENTICATION_CLASSES': (
-#     #     'rest_framework.authentication.SessionAuthentication',
-#     #     # 'api_auth.authentication.FirebaseAuthentication',
-#     # ),
-#     'DEFAULT_PERMISSION_CLASSES': (
-#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-#         # 'rest_framework.permissions.IsAuthenticated',
-#     ),
-#     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'api_auth.authentication.FirebaseAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        # 'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
 # API Documentation Settings - COMMENTED OUT FOR DRF REMOVAL
-# SPECTACULAR_SETTINGS = {
-#     'TITLE': 'Sigma Beta Rho Database API',
-#     'DESCRIPTION': 'API for the Sigma Beta Rho Database',
-#     'VERSION': '0.1.0',
-#     'SERVE_INCLUDE_SCHEMA': False,
-#     # OTHER SETTINGS
-# }
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Sigma Beta Rho Database API',
+    'DESCRIPTION': 'API for the Sigma Beta Rho Database',
+    'VERSION': '0.1.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
